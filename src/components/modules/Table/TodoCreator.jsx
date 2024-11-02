@@ -25,6 +25,8 @@ const TodoCreator = () => {
     }
   };
 
+  const clearForm = () => setTodo("");
+
   return (
     <form action="" className="py-4">
       <div className="flex bg-slate-200 rounded-3xl overflow-hidden hover:bg-slate-300">
