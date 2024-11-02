@@ -1,4 +1,4 @@
-import TodoCreator from "../TodoCreator/TodoCreator";
+import TodoCreator from "./TodoCreator";
 import Table from "./Table";
 
 const TodoList = () => {
