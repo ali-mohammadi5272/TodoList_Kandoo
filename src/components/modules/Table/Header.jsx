@@ -8,6 +8,9 @@ const Header = () => {
         <span>Title</span>
       </div>
       <div className="flex font-bold text-lg items-center justify-center w-full">
+        <span>Done</span>
+      </div>
+      <div className="flex font-bold text-lg items-center justify-center w-full">
         <span>#</span>
       </div>
     </header>
