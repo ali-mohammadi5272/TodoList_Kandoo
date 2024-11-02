@@ -15,7 +15,7 @@ const slice = createSlice({
     create: (state, action) => {
       const newTodo = createTodo(action.payload);
       state.push(newTodo);
-      setLocalStorageData("db", state);
+      setLocalStorageData("db", { todos: state });
     },
     updateTitle: (state, action) => {},
     updateStatus: (state, action) => {},
