@@ -3,4 +3,8 @@ const getLocalStorageData = (key) => {
   return data;
 };
 
-export { getLocalStorageData };
+const setLocalStorageData = (key, value) => {
+  localStorage.setItem(key, JSON.stringify(value));
+};
+
+export { getLocalStorageData, setLocalStorageData };
