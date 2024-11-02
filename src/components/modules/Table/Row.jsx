@@ -3,10 +3,10 @@ import FontAwesomeIcon from "../FontawesomeIcon/FontawesomeIcon";
 const Row = () => {
   return (
     <div className="flex h-full w-full items-center justify-evenly text-sm hover:bg-gray-200 py-1">
-      <div className="w-full text-center">
+      <div className="w-full text-center pt-1 pb-2 px-3">
         <span>952900</span>
       </div>
-      <div className="w-full text-center">
+      <div className="w-full text-center pt-1 pb-2 px-3">
         <span>چگونه انسان شاد تری باشیم؟</span>
       </div>
       <div className="flex w-full justify-center items-center">
