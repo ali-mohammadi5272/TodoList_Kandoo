@@ -19,7 +19,11 @@ const slice = createSlice({
     },
     updateTitle: (state, action) => {},
     updateStatus: (state, action) => {},
-    removeOne: (state, action) => {},
+    removeOne: (state, action) => {
+      const todos = state.filter((todo) => todo.id !== action.payload);
+      setLocalStorageData("db", { todos });
+      return todos;
+    },
   },
 });
 
