@@ -3,4 +3,8 @@ const themes = {
   DARK: "DARK",
 };
 
-export { themes };
+const dbDefaultTables = {
+  todos: [],
+};
+
+export { themes, dbDefaultTables };
