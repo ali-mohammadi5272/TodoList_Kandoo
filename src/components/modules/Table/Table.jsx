@@ -4,7 +4,7 @@ import Footer from "./Footer";
 
 const Table = () => {
   return (
-    <div className="bg-white overflow-hidden rounded-md w-full">
+    <div className="bg-slate-200 overflow-hidden rounded-lg w-full">
       <Header />
       <Main />
       <Footer />
