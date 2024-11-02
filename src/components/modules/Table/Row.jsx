@@ -10,6 +10,7 @@ import { todosMessages } from "../../../utils/constants";
 const Row = ({ id, title, isCompleted, index }) => {
   const [canEdit, setCanEdit] = useState(false);
   const [editedTodo, setEditedTodo] = useState("");
+  const [todoStatus, setTodoStatus] = useState(isCompleted);
   const dispatch = useDispatch();
 
   const removeTodoHandler = async () => {
@@ -24,6 +25,9 @@ const Row = ({ id, title, isCompleted, index }) => {
       dispatch(removeOne(id));
       toast.success(todosMessages.success.remove);
     }
+  };
+  const changeTodoCompleteStatus = (isTodoComplete) => {
+    setTodoStatus(isTodoComplete);
   };
 
   return (
@@ -48,11 +52,21 @@ const Row = ({ id, title, isCompleted, index }) => {
           <>
             <Button className="bg-red-500 hover:bg-red-600" icon="faXmark" />
             <Button
-              className="bg-red-500 hover:bg-red-600 font-bold"
+              className={`hover:bg-red-600 font-bold ${
+                !todoStatus
+                  ? "bg-red-500 text-white"
+                  : "text-gray-600 hover:text-white"
+              }`}
+              onClick={() => changeTodoCompleteStatus(false)}
               text="pending"
             />
             <Button
-              className="bg-green-500 hover:bg-green-600 font-bold"
+              className={`hover:bg-green-600 font-bold ${
+                todoStatus
+                  ? "bg-green-500 text-white"
+                  : "text-gray-600 hover:text-white"
+              }`}
+              onClick={() => changeTodoCompleteStatus(true)}
               text="done"
             />
           </>
