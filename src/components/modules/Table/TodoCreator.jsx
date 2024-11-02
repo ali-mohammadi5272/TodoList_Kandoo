@@ -9,9 +9,10 @@ const TodoCreator = () => {
           placeholder="add your tasks"
         />
         <input
-          className="bg-orange-500 cursor-pointer text-white font-bold text-lg rounded-3xl py-1 px-6 hover:bg-orange-600 tracking-wide"
+          className="bg-orange-500 cursor-pointer text-white font-bold text-lg rounded-3xl py-1 px-6 hover:bg-orange-600 tracking-wide disabled:bg-slate-500"
           type="submit"
           value="Add"
+          disabled={!todo}
         />
       </div>
     </form>
