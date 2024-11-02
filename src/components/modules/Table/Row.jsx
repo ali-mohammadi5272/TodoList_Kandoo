@@ -18,7 +18,7 @@ const Row = ({ id, title, isCompleted, index }) => {
 
   return (
     <div
-      className={`flex h-full w-full items-center justify-evenly text-sm hover:bg-gray-200 py-2 ${
+      className={`flex h-full w-full items-center justify-evenly text-sm hover:bg-slate-300 py-2 ${
         canEdit ? "bg-gray-300" : ""
       }`}
     >
