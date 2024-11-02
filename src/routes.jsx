@@ -1,5 +1,6 @@
 import HomePage from "./components/templates/Home/Index";
 import Layout from "./components/templates/Layout/Layout";
+import NotFoundPage from "./components/templates/NotFoundPage/Index";
 
 const routes = [
   {
@@ -11,6 +12,10 @@ const routes = [
         element: <HomePage />,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ];
 
