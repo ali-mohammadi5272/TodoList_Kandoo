@@ -1,9 +1,29 @@
 import { useState } from "react";
+import { create } from "../../../Redux/stores/Todos";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { todosMessages } from "../../../utils/constants";
 
 const TodoCreator = () => {
   const [todo, setTodo] = useState("");
+  const todos = useSelector((prev) => prev.todos);
+  const dispatch = useDispatch();
 
   const inputChange = (e) => setTodo(e.target.value);
+
+  const addTodo = () => {
+    if (todo.trim()) {
+      const isTodoExistBeforeInDB = !!todos.find(
+        (todoItem) => todoItem.title.trim().toLowerCase() === todo.toLowerCase()
+      );
+      if (!isTodoExistBeforeInDB) {
+        dispatch(create(todo));
+        toast.success(todosMessages.success.create);
+        return;
+      }
+      toast.error(todosMessages.error.create);
+    }
+  };
 
   return (
     <form action="" className="py-4">
