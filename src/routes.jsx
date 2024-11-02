@@ -1,4 +1,4 @@
-import HomePage from "./components/templates/Home/Index";
+import HomePage from "./components/templates/HomePage/Index";
 import Layout from "./components/templates/Layout/Layout";
 import NotFoundPage from "./components/templates/NotFoundPage/Index";
 
