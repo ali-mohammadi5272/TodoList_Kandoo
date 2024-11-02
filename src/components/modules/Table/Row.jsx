@@ -48,8 +48,12 @@ const Row = ({ id, title, isCompleted, index }) => {
           <>
             <Button className="bg-red-500 hover:bg-red-600" icon="faXmark" />
             <Button
-              className="bg-green-500 hover:bg-green-600"
-              icon="faCheck"
+              className="bg-red-500 hover:bg-red-600 font-bold"
+              text="pending"
+            />
+            <Button
+              className="bg-green-500 hover:bg-green-600 font-bold"
+              text="complete"
             />
           </>
         )}
