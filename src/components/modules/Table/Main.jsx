@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Row from "./Row";
 
 const Main = () => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos) || [];
 
   return (
     <div className="table-main">
