@@ -1,12 +1,12 @@
-import Table from "../../modules/Table/Table";
 import Container from "../../modules/Container/Container";
+import TodoList from "../../modules/Table/TodoList";
 
 const HomePage = () => {
   return (
     <main>
       <Container>
-      <section>
-        <Table />
+        <section>
+          <TodoList />
         </section>
       </Container>
     </main>
