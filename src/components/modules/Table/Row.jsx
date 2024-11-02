@@ -54,6 +54,11 @@ const Row = ({ id, title, isCompleted, index }) => {
   const changeTodoCompleteStatus = (isTodoComplete) => {
     setTodoStatus(isTodoComplete);
   };
+  const cancelEditHandler = async () => {
+    setEditedTodo("");
+    setTodoStatus(isCompleted);
+    setCanEdit(false);
+  };
 
   return (
     <div
@@ -128,6 +133,7 @@ const Row = ({ id, title, isCompleted, index }) => {
         {canEdit && (
           <Button
             className="bg-black hover:bg-gray-700 font-bold"
+            onClick={cancelEditHandler}
             text="cancel"
           />
         )}
