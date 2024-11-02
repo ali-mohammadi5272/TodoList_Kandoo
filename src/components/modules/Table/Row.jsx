@@ -2,7 +2,7 @@ import FontAwesomeIcon from "../FontawesomeIcon/FontawesomeIcon";
 
 const Row = () => {
   return (
-    <div className="flex h-full w-full items-center justify-evenly text-sm hover:bg-gray-200">
+    <div className="flex h-full w-full items-center justify-evenly text-sm hover:bg-gray-200 py-1">
       <div className="flex w-full justify-center items-center">
         <span>952900</span>
       </div>
