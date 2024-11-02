@@ -7,4 +7,15 @@ const setLocalStorageData = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
 };
 
-export { getLocalStorageData, setLocalStorageData };
+const createTodo = (title) => {
+  const todo = {
+    id: crypto.randomUUID() + Date.now(),
+    title,
+    isCompleted: false,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+  return todo;
+};
+
+export { getLocalStorageData, setLocalStorageData, createTodo };
