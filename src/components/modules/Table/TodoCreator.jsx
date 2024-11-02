@@ -35,9 +35,9 @@ const TodoCreator = () => {
 
   return (
     <form action="" className="py-4" onSubmit={submitFormHandler}>
-      <div className="flex bg-slate-200 rounded-3xl overflow-hidden hover:bg-slate-300">
+      <div className="flex bg-slate-200 rounded-3xl hover:bg-slate-300">
         <input
-          className="py-1 outline-none px-3 border-none bg-transparent w-full"
+          className="py-1 outline-none px-3 border-none bg-transparent w-full rounded-3xl"
           type="text"
           id="input-box"
           placeholder="add your tasks"
