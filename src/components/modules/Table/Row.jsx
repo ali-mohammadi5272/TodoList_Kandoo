@@ -13,6 +13,10 @@ const Row = ({ id, title, isCompleted, index }) => {
   const [todoStatus, setTodoStatus] = useState(isCompleted);
   const dispatch = useDispatch();
 
+  const todoTitleChange = (e) => {
+    setEditedTodo(e.target.textContent);
+  };
+
   const removeTodoHandler = async () => {
     const result = await swal({
       title: "Remove Todo",
@@ -42,6 +46,7 @@ const Row = ({ id, title, isCompleted, index }) => {
       <div
         className="w-full text-center pt-1 pb-2 max-w-full overflow-auto"
         contentEditable={canEdit}
+        onInput={todoTitleChange}
       >
         <span className="whitespace-nowrap">
           {editedTodo.trim() ? editedTodo : title}
