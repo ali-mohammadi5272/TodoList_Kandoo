@@ -53,7 +53,7 @@ const Row = ({ id, title, isCompleted, index }) => {
             />
             <Button
               className="bg-green-500 hover:bg-green-600 font-bold"
-              text="complete"
+              text="done"
             />
           </>
         )}
