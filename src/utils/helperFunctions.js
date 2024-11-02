@@ -18,4 +18,14 @@ const createTodo = (title) => {
   return todo;
 };
 
-export { getLocalStorageData, setLocalStorageData, createTodo };
+const isTodoExistsBeforeInDB = (db, title) => {
+  const isTodoExistsBefore = !!db.todos.find((todo) => todo.title === title);
+  return isTodoExistsBefore;
+};
+
+export {
+  getLocalStorageData,
+  setLocalStorageData,
+  createTodo,
+  isTodoExistsBeforeInDB,
+};
