@@ -14,10 +14,8 @@ const slice = createSlice({
   reducers: {
     create: (state, action) => {
       const newTodo = createTodo(action.payload);
-      const db = getLocalStorageData("db") || dbDefaultTables;
-      db.todos.push(newTodo);
-      setLocalStorageData("db", db);
       state.push(newTodo);
+      setLocalStorageData("db", state);
     },
     updateTitle: (state, action) => {},
     updateStatus: (state, action) => {},
