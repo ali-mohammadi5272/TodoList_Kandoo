@@ -27,8 +27,14 @@ const TodoCreator = () => {
 
   const clearForm = () => setTodo("");
 
+  const submitFormHandler = (e) => {
+    e.preventDefault();
+    addTodo();
+    clearForm();
+  };
+
   return (
-    <form action="" className="py-4">
+    <form action="" className="py-4" onSubmit={submitFormHandler}>
       <div className="flex bg-slate-200 rounded-3xl overflow-hidden hover:bg-slate-300">
         <input
           className="py-1 outline-none px-3 border-none bg-transparent w-full"
