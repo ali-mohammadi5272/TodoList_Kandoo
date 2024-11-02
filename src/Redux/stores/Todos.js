@@ -7,7 +7,14 @@ const { todos } = getLocalStorageData("db") || dbDefaultTables;
 const slice = createSlice({
   name: "Todos",
   initialState: todos,
-  reducers: {},
+  reducers: {
+    create: (state, action) => {},
+    updateTitle: (state, action) => {},
+    updateStatus: (state, action) => {},
+    removeOne: (state, action) => {},
+  },
 });
+
+export const { create, updateTitle, updateStatus, removeOne } = slice.actions;
 
 export default slice.reducer;
