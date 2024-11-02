@@ -40,11 +40,17 @@ const Row = ({ id, title, isCompleted, index }) => {
         canEdit ? "bg-gray-300" : ""
       }`}
     >
-      <div className=" w-2/4 text-center pt-1 pb-2 max-w-2/4 overflow-auto">
+      <div
+        className={`w-2/4 text-center pt-1 pb-2 max-w-2/4 overflow-auto ${
+          todoStatus ? "line-through" : ""
+        }`}
+      >
         <span className="whitespace-nowrap">{index + 1}</span>
       </div>
       <div
-        className="w-full text-center pt-1 pb-2 max-w-full overflow-auto"
+        className={`w-full text-center pt-1 pb-2 max-w-full overflow-auto ${
+          todoStatus ? "line-through" : ""
+        }`}
         contentEditable={canEdit}
         onInput={todoTitleChange}
       >
