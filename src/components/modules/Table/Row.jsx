@@ -104,6 +104,12 @@ const Row = ({ id, title, isCompleted, index }) => {
           className="bg-[#008f8fcc] hover:bg-[#007272cc]"
           icon="faPenToSquare"
         />
+        {canEdit && (
+          <Button
+            className="bg-black hover:bg-gray-700 font-bold"
+            text="cancel"
+          />
+        )}
       </div>
     </div>
   );
