@@ -17,8 +17,7 @@ const slice = createSlice({
       state.push(newTodo);
       setLocalStorageData("db", { todos: state });
     },
-    updateTitle: (state, action) => {},
-    updateStatus: (state, action) => {},
+    updateTodo: (state, action) => {},
     removeOne: (state, action) => {
       const todos = state.filter((todo) => todo.id !== action.payload);
       setLocalStorageData("db", { todos });
@@ -27,6 +26,6 @@ const slice = createSlice({
   },
 });
 
-export const { create, updateTitle, updateStatus, removeOne } = slice.actions;
+export const { create, updateTodo, removeOne } = slice.actions;
 
 export default slice.reducer;
