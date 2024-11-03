@@ -99,9 +99,18 @@ const Row = ({ id, title, isCompleted, index }) => {
         contentEditable={canEdit}
         onInput={todoTitleChange}
       >
-        <span className="whitespace-nowrap">
-          {editedTodo.trim() ? editedTodo : title}
-        </span>
+        {canEdit && (
+          <input
+            onChange={todoTitleChange}
+            type="text"
+            className="h-full w-full px-2"
+            value={editedTodo}
+            placeholder="title"
+          />
+        )}
+        {!canEdit && (
+          <span className="whitespace-nowrap">{editedTodo.trim()}</span>
+        )}
       </div>
       <div className="flex w-full justify-center items-center">
         {canEdit && (
