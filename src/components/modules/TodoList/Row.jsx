@@ -37,7 +37,6 @@ const Row = ({ id, title, isCompleted, index }) => {
     setTodoStatus(isTodoComplete);
   };
   const cancelEditHandler = async () => {
-    setEditedTodo("");
     setTodoStatus(isCompleted);
     setCanEdit(false);
   };
