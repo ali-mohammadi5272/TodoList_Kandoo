@@ -3,7 +3,7 @@ import FontAwesomeIcon from "../FontawesomeIcon/FontawesomeIcon";
 import swal from "sweetalert";
 import Button from "./Button";
 import { useDispatch, useSelector } from "react-redux";
-import { removeOne, updateTodo } from "./../../../Redux/stores/Todos";
+import { removeOne, updateTodo } from "../../../Redux/stores/Todos";
 import { toast } from "react-toastify";
 import { todosMessages } from "../../../utils/constants";
 
