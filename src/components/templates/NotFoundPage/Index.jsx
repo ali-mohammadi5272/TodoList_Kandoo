@@ -7,14 +7,14 @@ const NotFoundPage = () => {
   }, []);
 
   return (
-    <div className="h-screen flex justify-center items-center flex-col space-y-8">
-      <h1 className="text-[200px] text-[firebrick]">404</h1>
-      <p className="text-3xl">Page not found</p>
+    <div className="h-screen flex justify-center items-center flex-col space-y-10">
+      <h1 className="text-[13rem] text-[firebrick]">404</h1>
+      <p className="text-5xl">Page not found</p>
       <Link
-        className="text-3xl bg-black border-2 border-black pt-1 pb-2 px-3 rounded-md text-white no-underline hover:bg-transparent hover:text-black"
+        className="text-3xl text-black border-2 font-bold border-black pt-1 pb-2 px-3 rounded-md no-underline hover:bg-black hover:text-white"
         to="/"
       >
-        Login
+        Home
       </Link>
     </div>
   );
