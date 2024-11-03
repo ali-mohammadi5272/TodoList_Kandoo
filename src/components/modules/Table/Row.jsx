@@ -9,13 +9,13 @@ import { todosMessages } from "../../../utils/constants";
 
 const Row = ({ id, title, isCompleted, index }) => {
   const [canEdit, setCanEdit] = useState(false);
-  const [editedTodo, setEditedTodo] = useState("");
+  const [editedTodo, setEditedTodo] = useState(title);
   const [todoStatus, setTodoStatus] = useState(isCompleted);
   const dispatch = useDispatch();
   const todos = useSelector((prev) => prev.todos);
 
   const todoTitleChange = (e) => {
-    setEditedTodo(e.target.textContent);
+    setEditedTodo(e.target.value);
   };
   const editBtnHandler = () => {
     setCanEdit(true);
@@ -46,6 +46,11 @@ const Row = ({ id, title, isCompleted, index }) => {
     const isStatusChanged = todoStatus !== isCompleted;
     const isTodoChanged = isTitleChanged || isStatusChanged;
 
+    if (!editedTodo.trim()) {
+      toast.error(todosMessages.error.updateTodoEmpty);
+      return;
+    }
+
     if (canEdit && isTodoChanged) {
       const result = await swal({
         title: "Update Todo",
@@ -70,11 +75,12 @@ const Row = ({ id, title, isCompleted, index }) => {
       dispatch(
         updateTodo({
           id,
-          title: editedTodo.trim() ? editedTodo.trim() : title,
+          title: editedTodo.trim(),
           isCompleted: todoStatus !== isCompleted ? todoStatus : isCompleted,
         })
       );
-      setEditedTodo("");
+      setCanEdit(false);
+    } else {
       setCanEdit(false);
     }
   };
@@ -93,11 +99,9 @@ const Row = ({ id, title, isCompleted, index }) => {
         <span className="whitespace-nowrap">{index + 1}</span>
       </div>
       <div
-        className={`w-full text-center pt-1 pb-2 max-w-full overflow-auto ${
+        className={`flex justify-center  w-full text-center pt-1 pb-2 max-w-full overflow-auto ${
           todoStatus ? "line-through" : ""
         }`}
-        contentEditable={canEdit}
-        onInput={todoTitleChange}
       >
         {canEdit && (
           <input
