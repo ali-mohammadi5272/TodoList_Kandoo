@@ -16,12 +16,12 @@ const TodoCreator = () => {
       const isTodoExistBeforeInDB = !!todos.find(
         (todoItem) => todoItem.title.trim().toLowerCase() === todo.toLowerCase()
       );
-      if (!isTodoExistBeforeInDB) {
-        dispatch(create(todo));
-        toast.success(todosMessages.success.create);
+      if (isTodoExistBeforeInDB) {
+        toast.error(todosMessages.error.create);
         return;
       }
-      toast.error(todosMessages.error.create);
+      toast.success(todosMessages.success.create);
+      dispatch(create(todo));
     }
   };
 
