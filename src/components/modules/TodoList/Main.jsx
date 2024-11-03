@@ -1,13 +1,10 @@
-import { useSelector } from "react-redux";
 import Row from "./Row";
 
-const Main = () => {
-  const todos = useSelector((state) => state.todos) || [];
-
+const Main = ({ todos }) => {
   return (
     <div className="table-main">
-      {todos.length > 0 ? (
-        todos.map((todo, index) => (
+      {todos && todos.length > 0 ? (
+        todos?.map((todo, index) => (
           <Row
             key={todo.id}
             id={todo.id}
