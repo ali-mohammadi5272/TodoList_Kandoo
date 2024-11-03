@@ -2,8 +2,8 @@ import { useState } from "react";
 import FontAwesomeIcon from "../FontawesomeIcon/FontawesomeIcon";
 import swal from "sweetalert";
 import Button from "./Button";
-import { useDispatch } from "react-redux";
-import { removeOne } from "./../../../Redux/stores/Todos";
+import { useDispatch, useSelector } from "react-redux";
+import { removeOne, updateTodo } from "./../../../Redux/stores/Todos";
 import { toast } from "react-toastify";
 import { todosMessages } from "../../../utils/constants";
 
@@ -12,28 +12,10 @@ const Row = ({ id, title, isCompleted, index }) => {
   const [editedTodo, setEditedTodo] = useState("");
   const [todoStatus, setTodoStatus] = useState(isCompleted);
   const dispatch = useDispatch();
+  const todos = useSelector((prev) => prev.todos);
 
   const todoTitleChange = (e) => {
     setEditedTodo(e.target.textContent);
-  };
-  const saveChangesConfirmation = async () => {
-    const isTodoEdited = !!editedTodo.trim();
-    if (canEdit && isTodoEdited) {
-      const result = await swal({
-        title: "Update Todo",
-        icon: "warning",
-        text: "Save Changes ?",
-        buttons: ["No", "Yes"],
-      });
-      setEditedTodo("");
-      if (result) {
-        await swal({
-          title: "Update Todo",
-          icon: "success",
-          text: "Todo updated successfully",
-        });
-      }
-    }
   };
   const editBtnHandler = () => {
     setCanEdit(true);
@@ -58,6 +40,43 @@ const Row = ({ id, title, isCompleted, index }) => {
     setEditedTodo("");
     setTodoStatus(isCompleted);
     setCanEdit(false);
+  };
+  const saveChangesHandler = async () => {
+    const isTitleChanged = editedTodo.trim() !== title;
+    const isStatusChanged = todoStatus !== isCompleted;
+    const isTodoChanged = isTitleChanged || isStatusChanged;
+
+    if (canEdit && isTodoChanged) {
+      const result = await swal({
+        title: "Update Todo",
+        icon: "warning",
+        text: "Save Changes ?",
+        buttons: ["No", "Yes"],
+      });
+
+      if (!result) return;
+
+      if (isTitleChanged) {
+        const isTodoExistBeforeInDB = !!todos.find(
+          (todoItem) =>
+            todoItem.title.trim().toLowerCase() === editedTodo.toLowerCase()
+        );
+        if (isTodoExistBeforeInDB) {
+          toast.error(todosMessages.error.update);
+          return;
+        }
+      }
+      toast.success(todosMessages.success.update);
+      dispatch(
+        updateTodo({
+          id,
+          title: editedTodo.trim() ? editedTodo.trim() : title,
+          isCompleted: todoStatus !== isCompleted ? todoStatus : isCompleted,
+        })
+      );
+      setEditedTodo("");
+      setCanEdit(false);
+    }
   };
 
   return (
@@ -140,6 +159,7 @@ const Row = ({ id, title, isCompleted, index }) => {
         {canEdit && (
           <Button
             className="bg-green-600 hover:bg-green-700 font-bold"
+            onClick={saveChangesHandler}
             text="save"
           />
         )}
