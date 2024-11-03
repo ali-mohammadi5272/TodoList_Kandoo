@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return (
     <main>
-      <h1 className="text-5xl font-bold my-5 text-center">Home</h1>
+      <h1 className="text-5xl font-bold my-5 text-center mb-10">Home</h1>
       <section>
         <TodoList />
       </section>
