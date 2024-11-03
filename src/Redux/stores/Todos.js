@@ -17,7 +17,15 @@ const slice = createSlice({
       state.push(newTodo);
       setLocalStorageData("db", { todos: state });
     },
-    updateTodo: (state, action) => {},
+    updateTodo: (state, action) => {
+      state.forEach((todo) => {
+        if (todo.id === action.payload.id) {
+          todo.title = action.payload.title;
+          todo.isCompleted = action.payload.isCompleted;
+        }
+      });
+      setLocalStorageData("db", { todos: state });
+    },
     removeOne: (state, action) => {
       const todos = state.filter((todo) => todo.id !== action.payload);
       setLocalStorageData("db", { todos });
