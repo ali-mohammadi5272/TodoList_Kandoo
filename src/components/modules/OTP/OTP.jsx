@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from "react";
 import OTPInput from "./OTPInput";
-import OTPButton from "./OTPbutton";
+import OTPButton from "./OTPButton";
 
 const OTP = () => {
   const input1 = useRef();
