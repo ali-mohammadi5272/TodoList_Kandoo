@@ -1,5 +1,5 @@
 import Container from "../../modules/Container/Container";
-import TodoList from "../../modules/Table/TodoList";
+import TodoList from "../../modules/TodoList/TodoList";
 
 const HomePage = () => {
   return (
