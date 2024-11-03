@@ -1,6 +1,11 @@
+import { useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
+  useLayoutEffect(() => {
+    document.title = "404-Not Found";
+  }, []);
+
   return (
     <div className="h-screen flex justify-center items-center flex-col space-y-8">
       <h1 className="text-[200px] text-[firebrick]">404</h1>
