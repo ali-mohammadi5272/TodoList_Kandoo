@@ -9,6 +9,7 @@ const OTPInput = ({ refElement, onChange }) => {
       maxLength={1}
       ref={refElement}
       onChange={onChange}
+      required
     />
   );
 };
