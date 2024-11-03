@@ -1,4 +1,5 @@
 import { useLayoutEffect } from "react";
+import OTP from "../../modules/OTP/OTP";
 
 const VerificationPage = () => {
   useLayoutEffect(() => {
@@ -8,6 +9,9 @@ const VerificationPage = () => {
   return (
     <main>
       <h1 className="text-5xl font-bold my-5 text-center">Verification</h1>
+      <section>
+        <OTP />
+      </section>
     </main>
   );
 };
