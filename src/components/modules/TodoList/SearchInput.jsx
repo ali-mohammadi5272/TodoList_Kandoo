@@ -1,4 +1,4 @@
-const SearchInput = ({ onChange, value }) => {
+const SearchInput = ({ onChange }) => {
   const submitFormHandler = (e) => e.preventDefault();
 
   return (
@@ -9,7 +9,6 @@ const SearchInput = ({ onChange, value }) => {
           type="search"
           id="input-box"
           placeholder="find Todo"
-          value={value}
           onChange={onChange}
           required
         />
